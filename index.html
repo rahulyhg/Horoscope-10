@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular</title>
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body ng-app = "myApp" layout="column">
+
+<md-toolbar class="md-whiteframe-4dp header">
+
+</md-toolbar>
+
+<div class="container" layout="row" ng-controller="horoscopeController" flex>
+    <md-sidenav  md-is-locked-open="true" class="md-whiteframe-4dp">
+
+        <md-list ng-repeat = "oneType in horoscopeType" class = "fontSyle">
+            <md-list-item>
+                <md-button>
+                    <span>{{ oneType.name }}</span>
+                </md-button>
+            </md-list-item>
+        </md-list>
+
+    </md-sidenav>
+
+    <md-content id="content" class = "" flex>
+        Content
+    </md-content>
+</div>
+
+
+
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="node_modules/angular-animate/angular-animate.js"></script>
+<script src="node_modules/angular-aria/angular-aria.min.js"></script>
+<script src="node_modules/angular-material/angular-material.min.js"></script>
+<script src="node_modules/angular-route/angular-route.min.js"></script>
+
+<script>
+    var horoscope = angular.module('myApp',['ngMaterial']);
+
+    horoscope.controller('horoscopeController' , function($scope){
+        $scope.horoscopeType = [
+                {name: 'Западный гороскоп'},
+                {name: 'Восточный гороскоп'},
+                {name: 'Греческий гороскоп'},
+                {name: 'Цветочный гороскоп'},
+                {name: 'Гороскоп друидов'}];
+    });
+</script>
+
+</body>
+</html>
